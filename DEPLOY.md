@@ -32,8 +32,7 @@ npm run preview
 
 Docker-сборка:
 
-- устанавливает зависимости через `npm ci`, если в репозитории есть `package-lock.json`;
-- использует `npm install`, если lock-файл не попал в build context;
+- устанавливает зависимости через `npm install --include=dev`;
 - собирает Vite-приложение;
 - отдает `dist` через nginx;
 - включает SPA fallback на `index.html`;
