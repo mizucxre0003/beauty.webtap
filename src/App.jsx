@@ -12,7 +12,7 @@ import {
   X,
 } from 'lucide-react';
 
-import heroImage from './assets/images/hero-editorial-beauty.png';
+import heroImage from './assets/images/hero-editorial-beauty.webp';
 import interiorImage from './assets/images/salon-interior-warm.jpg';
 import masterImage from './assets/images/beauty-master-process.jpg';
 import nailsImage from './assets/images/nails-detail.jpg';
@@ -21,9 +21,9 @@ import browsImage from './assets/images/brows-lashes-detail.webp';
 import makeupImage from './assets/images/makeup-natural-glow.webp';
 import skincareImage from './assets/images/skincare-treatment.jpg';
 import bridalImage from './assets/images/bridal-beauty-look.jpg';
-import resultImage from './assets/images/gallery-beauty-result-01.png';
-import detailImage from './assets/images/gallery-salon-detail-02.png';
-import processImage from './assets/images/gallery-process-03.png';
+import resultImage from './assets/images/gallery-beauty-result-01.webp';
+import detailImage from './assets/images/gallery-salon-detail-02.webp';
+import processImage from './assets/images/gallery-process-03.webp';
 
 const whatsappUrl =
   'https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20записаться%20в%20beauty.webtap';
@@ -411,7 +411,13 @@ function Hero({ theme, themeKey }) {
   if (theme.hero === 'editorial') {
     return (
       <section className="hero hero-editorial" id="top">
-        <img alt="" className="hero-editorial-image" src={heroImage} />
+        <img
+          alt=""
+          className="hero-editorial-image"
+          decoding="async"
+          fetchPriority="high"
+          src={heroImage}
+        />
         <div className="hero-editorial-panel" data-reveal>
           <p className="eyebrow">{theme.eyebrow}</p>
           <h1>Beauty-пространство для тех, кто выбирает себя</h1>
@@ -438,9 +444,24 @@ function Hero({ theme, themeKey }) {
           <HeroActions centered theme={theme} />
         </div>
         <div className="minimal-collage" data-reveal>
-          <img alt="Премиальный интерьер салона beauty.webtap" src={interiorImage} />
-          <img alt="Аккуратный beauty-процесс" src={masterImage} />
-          <img alt="Натуральный beauty-результат" src={resultImage} />
+          <img
+            alt="Премиальный интерьер салона beauty.webtap"
+            decoding="async"
+            fetchPriority="high"
+            src={interiorImage}
+          />
+          <img
+            alt="Аккуратный beauty-процесс"
+            decoding="async"
+            fetchPriority="high"
+            src={masterImage}
+          />
+          <img
+            alt="Натуральный beauty-результат"
+            decoding="async"
+            fetchPriority="high"
+            src={resultImage}
+          />
         </div>
         <HeroNotes centered />
       </section>
@@ -460,9 +481,27 @@ function Hero({ theme, themeKey }) {
           <HeroNotes />
         </div>
         <div className="glam-collage" data-reveal>
-          <img alt="Премиальный beauty-образ" className="glam-main" src={heroImage} />
-          <img alt="Деталь макияжа" className="glam-small glam-one" src={makeupImage} />
-          <img alt="Свадебный образ" className="glam-small glam-two" src={bridalImage} />
+          <img
+            alt="Премиальный beauty-образ"
+            className="glam-main"
+            decoding="async"
+            fetchPriority="high"
+            src={heroImage}
+          />
+          <img
+            alt="Деталь макияжа"
+            className="glam-small glam-one"
+            decoding="async"
+            fetchPriority="high"
+            src={makeupImage}
+          />
+          <img
+            alt="Свадебный образ"
+            className="glam-small glam-two"
+            decoding="async"
+            fetchPriority="high"
+            src={bridalImage}
+          />
           <span className="glam-line glam-line-top" />
           <span className="glam-line glam-line-bottom" />
         </div>
@@ -482,7 +521,12 @@ function Hero({ theme, themeKey }) {
         <HeroNotes />
       </div>
       <div className="hero-photo-wrap" data-reveal>
-        <img alt="Девушка в мягком свете premium beauty studio" src={heroImage} />
+        <img
+          alt="Девушка в мягком свете premium beauty studio"
+          decoding="async"
+          fetchPriority="high"
+          src={heroImage}
+        />
         <div className="hero-photo-caption">
           <span>personal care</span>
           <strong>10:00 - 20:00</strong>
@@ -546,6 +590,8 @@ function About({ theme, themeKey }) {
         <div className="about-visual" data-reveal>
           <img
             alt={themeKey === 'clean' ? 'Мастер во время процедуры' : 'Тёплый интерьер beauty.webtap'}
+            decoding="async"
+            loading="lazy"
             src={themeKey === 'clean' || themeKey === 'editorial' ? masterImage : interiorImage}
           />
           <div className="about-mini">
@@ -571,7 +617,7 @@ function Services({ theme, themeKey }) {
         {services.map((service, index) => (
           <article className={`service-card ${theme.card}`} data-reveal key={service.title}>
             <div className="service-image">
-              <img alt={service.title} src={service.image} />
+              <img alt={service.title} decoding="async" loading="lazy" src={service.image} />
               {themeKey === 'editorial' && <span>{String(index + 1).padStart(2, '0')}</span>}
             </div>
             <div className="service-body">
@@ -621,7 +667,7 @@ function Works({ themeKey }) {
       <div className={`gallery gallery-${themeKey}`}>
         {galleryImages.map((item, index) => (
           <figure className="gallery-item" data-reveal key={`${item.label}-${index}`}>
-            <img alt={item.label} src={item.image} />
+            <img alt={item.label} decoding="async" loading="lazy" src={item.image} />
             <figcaption>
               <span>{String(index + 1).padStart(2, '0')}</span>
               {item.label}
