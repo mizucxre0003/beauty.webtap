@@ -26,7 +26,7 @@ npm run preview
 2. В Koyeb создайте новый App.
 3. Выберите GitHub repository.
 4. Build method: `Dockerfile`.
-5. Port: `8080`.
+5. Port: `8000`.
 6. Health check path: `/`.
 7. Deploy.
 
